@@ -1,0 +1,110 @@
+package org.firstinspires.ftc.teamcode;
+
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
+
+import org.firstinspires.ftc.teamcode.Hardware;
+
+@TeleOp(name = "Final TeleOp", group = "TeleOps")
+public class FinalTeleOp extends LinearOpMode {
+
+        Hardware robot = new Hardware();
+
+        @Override
+        public void runOpMode() {
+
+            double drive;
+            double strafe;
+            double turn;
+
+            double frontLeftPower = 0;
+            double frontRightPower = 0;
+            double backLeftPower = 0;
+            double backRightPower = 0;
+
+            double carouselSpeed = 0.4;
+
+            double max;
+            double maxSpeed = 0.2;
+
+
+            robot.initialize(hardwareMap);
+
+            waitForStart();
+
+            while (opModeIsActive()) {
+                drive = -gamepad1.left_stick_y;
+                strafe = gamepad1.left_stick_x;
+                turn = gamepad1.right_stick_x;
+
+                frontLeftPower = drive + strafe + turn;
+                frontRightPower = drive - strafe - turn;
+                backLeftPower = drive - strafe + turn;
+                backRightPower = drive + strafe - turn;
+
+                if (Math.abs(frontLeftPower) > 1 || Math.abs(backLeftPower) > 1 || Math.abs(frontRightPower) > 1 || Math.abs(backRightPower) > 1) {
+                    max = Math.max(Math.abs(frontLeftPower), Math.abs(backLeftPower));
+                    max = Math.max(max, Math.abs(frontRightPower));
+                    max = Math.max(max, Math.abs(backRightPower));
+
+                    frontLeftPower /= max;
+                    frontRightPower /= max;
+                    backLeftPower /= max;
+                    backRightPower /= max;
+                }
+
+                robot.frontLeftMotor.setPower(frontLeftPower*maxSpeed);
+                robot.frontRightMotor.setPower(frontRightPower*maxSpeed);
+                robot.backLeftMotor.setPower(backLeftPower*maxSpeed);
+                robot.backRightMotor.setPower(backRightPower*maxSpeed);
+
+                if (gamepad1.right_bumper){
+                    robot.carouselSpinner.setPower(carouselSpeed);
+                }
+                else if (gamepad1.left_bumper){
+                    robot.carouselSpinner.setPower(-carouselSpeed);
+                }
+                else{
+                    robot.carouselSpinner.setPower(0);
+                }
+
+                if (gamepad1.left_trigger > 0.1){
+                    robot.intakeSpinner.setPower(gamepad1.left_trigger);
+                }
+                else if (gamepad1.right_trigger > 0.1){
+                    robot.intakeSpinner.setPower(-gamepad1.right_trigger);
+                }
+                else{
+                    robot.intakeSpinner.setPower(0);
+                }
+
+                telemetry.addData("Driving: ", drive);    //sends data on forward power
+                telemetry.addData("Strafing: ", strafe);   //sends data for strafing powers
+                telemetry.addData("Turning: ", turn);    //sends data for turning powers
+                telemetry.addData("frontRightMotor:", robot.frontRightMotor.getPower());
+                telemetry.addData("frontLeftMotor", robot.frontLeftMotor.getPower());
+                telemetry.addData("backRightMotor:", robot.backRightMotor.getPower());
+                telemetry.addData("backLeftMotor", robot.backLeftMotor.getPower());
+                telemetry.addData("Carousel Spinner Power", robot.carouselSpinner.getPower());
+                telemetry.addData("Intake Spinner Power", robot.intakeSpinner.getPower());
+                telemetry.update();
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
