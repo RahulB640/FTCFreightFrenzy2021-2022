@@ -42,7 +42,7 @@ public class Hardware {
         carouselSpinner = hwMap.get(DcMotor.class, "carouselSpinner");
 
         intakeSpinner = hwMap.get(DcMotor.class, "intakeSpinner");
-        //intakeLifter = hwMap.get(DcMotor.class, "intakeLifter");
+        intakeLifter = hwMap.get(DcMotor.class, "intakeLifter");
 
 
         //set directions
@@ -54,7 +54,7 @@ public class Hardware {
         carouselSpinner.setDirection(DcMotor.Direction.FORWARD);
 //
         intakeSpinner.setDirection(DcMotor.Direction.FORWARD);
-//        intakeLifter.setDirection(DcMotor.Direction.FORWARD);
+        intakeLifter.setDirection(DcMotor.Direction.REVERSE);
 
 
         //Set zero power behavior
@@ -64,9 +64,9 @@ public class Hardware {
         backLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         carouselSpinner.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-//
+
         intakeSpinner.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-//        intakeLifter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        intakeLifter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
 
         //set power to zero
@@ -76,9 +76,9 @@ public class Hardware {
         backLeftMotor.setPower(0);
 
         carouselSpinner.setPower(0);
-//
+
         intakeSpinner.setPower(0);
-//        intakeLifter.setPower(0);
+        intakeLifter.setPower(0);
 
 
         //set Motor Mode
@@ -90,7 +90,7 @@ public class Hardware {
         carouselSpinner.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 //
         intakeSpinner.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-//        intakeLifter.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        intakeLifter.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 }
 

@@ -19,10 +19,10 @@ public class FinalTeleOp extends LinearOpMode {
             double strafe;
             double turn;
 
-            double frontLeftPower = 0;
-            double frontRightPower = 0;
-            double backLeftPower = 0;
-            double backRightPower = 0;
+            double frontLeftPower;
+            double frontRightPower;
+            double backLeftPower;
+            double backRightPower;
 
             double carouselSpeed = 0.4;
 
@@ -80,6 +80,17 @@ public class FinalTeleOp extends LinearOpMode {
                     robot.intakeSpinner.setPower(0);
                 }
 
+                if (gamepad1.a) {
+                    robot.intakeLifter.setPower(-0.65);
+                }
+                else if (gamepad1.y){
+                    robot.intakeLifter.setPower(0.75);
+                }
+                else{
+                    robot.intakeLifter.setPower(0);
+                }
+
+
                 telemetry.addData("Driving: ", drive);    //sends data on forward power
                 telemetry.addData("Strafing: ", strafe);   //sends data for strafing powers
                 telemetry.addData("Turning: ", turn);    //sends data for turning powers
@@ -89,6 +100,7 @@ public class FinalTeleOp extends LinearOpMode {
                 telemetry.addData("backLeftMotor", robot.backLeftMotor.getPower());
                 telemetry.addData("Carousel Spinner Power", robot.carouselSpinner.getPower());
                 telemetry.addData("Intake Spinner Power", robot.intakeSpinner.getPower());
+                telemetry.addData("Intake Lifter Power", robot.intakeLifter.getPower());
                 telemetry.update();
             }
         }
