@@ -60,30 +60,30 @@ public class FinalTeleOp extends LinearOpMode {
                 robot.backLeftMotor.setPower(backLeftPower*maxSpeed);
                 robot.backRightMotor.setPower(backRightPower*maxSpeed);
 
-                if (gamepad1.right_bumper){
+                if (gamepad2.right_bumper){
                     robot.carouselSpinner.setPower(carouselSpeed);
                 }
-                else if (gamepad1.left_bumper){
+                else if (gamepad2.left_bumper){
                     robot.carouselSpinner.setPower(-carouselSpeed);
                 }
                 else{
                     robot.carouselSpinner.setPower(0);
                 }
 
-                if (gamepad1.left_trigger > 0.1){
+                if (gamepad2.left_trigger > 0.1){
                     robot.intakeSpinner.setPower(gamepad1.left_trigger);
                 }
-                else if (gamepad1.right_trigger > 0.1){
+                else if (gamepad2.right_trigger > 0.1){
                     robot.intakeSpinner.setPower(-gamepad1.right_trigger);
                 }
                 else{
                     robot.intakeSpinner.setPower(0);
                 }
 
-                if (gamepad1.a) {
+                if (gamepad2.a) {
                     robot.intakeLifter.setPower(-0.65);
                 }
-                else if (gamepad1.y){
+                else if (gamepad2.y){
                     robot.intakeLifter.setPower(0.75);
                 }
                 else{
