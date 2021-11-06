@@ -43,8 +43,6 @@ public class FinalTeleOpSmileyFace extends LinearOpMode {
             }
 
 
-
-
             if (!isReversed) {
                 drive = -gamepad1.left_stick_y;
                 strafe = gamepad1.left_stick_x;

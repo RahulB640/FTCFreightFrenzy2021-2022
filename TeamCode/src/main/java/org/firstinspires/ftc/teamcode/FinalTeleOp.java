@@ -15,35 +15,40 @@ public class FinalTeleOp extends LinearOpMode {
         @Override
         public void runOpMode() {
 
+            //Values that hold the values that the joysticks return.
             double drive;
             double strafe;
             double turn;
 
+            //Variables that will hold the power each respective motor should be at
             double frontLeftPower;
             double frontRightPower;
             double backLeftPower;
             double backRightPower;
 
-            double carouselSpeed = 0.4;
-
+            //set values that will be used for robot later.
+            final double carouselSpeed = 0.6;
             double max;
-            double maxSpeed = 0.2;
-
+            final double maxSpeed = 0.8;
 
             robot.initialize(hardwareMap);
 
             waitForStart();
 
             while (opModeIsActive()) {
+                //Gets values from joystick and put them into variables
                 drive = -gamepad1.left_stick_y;
                 strafe = gamepad1.left_stick_x;
                 turn = gamepad1.right_stick_x;
 
+                //calculates the drivetrain motor powers based off of the joystick's outputs
                 frontLeftPower = drive + strafe + turn;
                 frontRightPower = drive - strafe - turn;
                 backLeftPower = drive - strafe + turn;
                 backRightPower = drive + strafe - turn;
 
+
+                //if any of the motor values are > 1, than it lowers all proportionally to get good proportions and speed
                 if (Math.abs(frontLeftPower) > 1 || Math.abs(backLeftPower) > 1 || Math.abs(frontRightPower) > 1 || Math.abs(backRightPower) > 1) {
                     max = Math.max(Math.abs(frontLeftPower), Math.abs(backLeftPower));
                     max = Math.max(max, Math.abs(frontRightPower));
@@ -55,11 +60,14 @@ public class FinalTeleOp extends LinearOpMode {
                     backRightPower /= max;
                 }
 
+                //assigns motor powers to the motors
                 robot.frontLeftMotor.setPower(frontLeftPower*maxSpeed);
                 robot.frontRightMotor.setPower(frontRightPower*maxSpeed);
                 robot.backLeftMotor.setPower(backLeftPower*maxSpeed);
                 robot.backRightMotor.setPower(backRightPower*maxSpeed);
 
+
+                //Controls for everything else.
                 if (gamepad2.right_bumper){
                     robot.carouselSpinner.setPower(carouselSpeed);
                 }
@@ -71,10 +79,10 @@ public class FinalTeleOp extends LinearOpMode {
                 }
 
                 if (gamepad2.left_trigger > 0.1){
-                    robot.intakeSpinner.setPower(gamepad1.left_trigger);
+                    robot.intakeSpinner.setPower(gamepad2.left_trigger);
                 }
                 else if (gamepad2.right_trigger > 0.1){
-                    robot.intakeSpinner.setPower(-gamepad1.right_trigger);
+                    robot.intakeSpinner.setPower(-gamepad2.right_trigger);
                 }
                 else{
                     robot.intakeSpinner.setPower(0);
