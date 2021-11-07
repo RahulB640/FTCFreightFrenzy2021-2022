@@ -136,17 +136,17 @@ public class BlueCarouselSideAuton extends LinearOpMode {
             sleep(intakeSlackTime);
             robot.intakeLifter.setPower(0);
 
-            robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - 2*driveTicks);
-            robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - 2*driveTicks);
-            robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - 2*driveTicks);
-            robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - 2*driveTicks);
+            robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - (int)2.5*driveTicks);
+            robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - (int)2.5*driveTicks);
+            robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - (int)2.5*driveTicks);
+            robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - (int)2.5*driveTicks);
             sleep(2000);
 
             //go left, at duckspinner
-            robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() -(int)(0.3125*strafeTicks));
-            robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + (int)(0.3125*strafeTicks));
-            robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + (int)(0.3125*strafeTicks));
-            robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() -(int)(0.3125*strafeTicks));
+            robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() -(int)(0.7*strafeTicks));
+            robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + (int)(0.7*strafeTicks));
+            robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + (int)(0.7*strafeTicks));
+            robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() -(int)(0.7*strafeTicks));
             sleep(500);
 
             //check direction

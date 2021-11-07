@@ -145,6 +145,7 @@ public class BlueWarehouseSide extends LinearOpMode {
             robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + 4*driveTicks);
             robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + 4*driveTicks);
             robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + 4*driveTicks);
+            sleep(4000);
 
             robot.intakeLifter.setPower(-0.65);
             sleep((int) 0.5*intakeSlackTime);

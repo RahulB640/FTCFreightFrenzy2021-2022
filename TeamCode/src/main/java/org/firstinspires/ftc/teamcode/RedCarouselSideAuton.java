@@ -102,41 +102,42 @@ public class RedCarouselSideAuton extends LinearOpMode {
             robot.frontRightMotor.setTargetPosition((int) (driveTicks*1.05));
             robot.backLeftMotor.setTargetPosition((int) (driveTicks*1.05));
             robot.backRightMotor.setTargetPosition((int) (driveTicks*1.05));
-            sleep(100);
+            sleep(1500);
 
             // X += 0.05
             robot.frontLeftMotor.setTargetPosition((int) (-driveTicks*0.05));
             robot.frontRightMotor.setTargetPosition((int) (-driveTicks*0.05));
             robot.backLeftMotor.setTargetPosition((int) (-driveTicks*0.05));
             robot.backRightMotor.setTargetPosition((int) (-driveTicks*0.05));
-            sleep(100);
+            sleep(300);
 
             //y += 1
             robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + strafeTicks);
             robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - strafeTicks);
             robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - strafeTicks);
             robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + strafeTicks);
-            sleep(100);
+            sleep(1200);
 
             robot.intakeSpinner.setPower(-0.65);
-            sleep(1000);
+            sleep(1200);
             robot.intakeSpinner.setPower(0);
 
             robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - 2*strafeTicks);
             robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + 2*strafeTicks);
             robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + 2*strafeTicks);
             robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - 2*strafeTicks);
-            sleep(100);
+            sleep(1500);
 
             robot.intakeLifter.setPower(0.65);
             sleep((int) 0.5*intakeSlackTime);
             robot.intakeLifter.setPower(0);
 
             //x += 0.3125
-            robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - (int)(0.3125*driveTicks));
-            robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - (int)(0.3125*driveTicks));
-            robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - (int)(0.3125*driveTicks));
-            robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() -(int)(0.3125*driveTicks));
+            robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - (int)(0.7*driveTicks));
+            robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - (int)(0.7*driveTicks));
+            robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - (int)(0.7*driveTicks));
+            robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() -(int)(0.7*driveTicks));
+
 
             robot.carouselSpinner.setPower(0.6);
             sleep(3000);
