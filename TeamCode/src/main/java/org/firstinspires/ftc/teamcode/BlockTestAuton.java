@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Hardware;
 
-@Autonomous(name="Basic Red Auton for First Meet", group="Auton")
+@Autonomous(name="Block Test Auton", group="Auton")
 public class BlockTestAuton extends LinearOpMode {
 
     Hardware robot = new Hardware();
@@ -34,10 +34,10 @@ public class BlockTestAuton extends LinearOpMode {
         robot.backLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.backRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        int driveTicks = 750;
-        int strafeTicks = 750;
+        int driveTicks = 975;
+        int strafeTicks = 1000;
         int turnTicks = 750;
-
+        int intakeSlackTime = 750;
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
@@ -86,16 +86,10 @@ public class BlockTestAuton extends LinearOpMode {
             robot.backRightMotor.setTargetPosition(robot.backRightMotor.getCurrentPosition() - turnTicks);
             sleep(5000);
 
-
-
-
-
-
-
-
-
-
-
+            //Test intake Slack
+            robot.intakeLifter.setPower(-0.65);
+            sleep(intakeSlackTime);
+            robot.intakeLifter.setPower(0);
 
         }
 

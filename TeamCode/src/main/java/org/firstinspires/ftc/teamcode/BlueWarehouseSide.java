@@ -37,8 +37,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Hardware;
 
-@Autonomous(name="Blue Carousel Side Auton", group="Auton")
-public class BlueCarouselSideAuton extends LinearOpMode {
+@Autonomous(name="Blue Warehouse Side Auton", group="Auton")
+public class BlueWarehouseSide extends LinearOpMode {
 
     Hardware robot = new Hardware();
 
@@ -115,10 +115,10 @@ public class BlueCarouselSideAuton extends LinearOpMode {
             sleep(100);
 
             //y += 1
-            robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - strafeTicks);
-            robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + strafeTicks);
-            robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + strafeTicks);
-            robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - strafeTicks);
+            robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + strafeTicks);
+            robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - strafeTicks);
+            robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - strafeTicks);
+            robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + strafeTicks);
             sleep(100);
 
             robot.intakeSpinner.setPower(-0.65);
@@ -136,34 +136,20 @@ public class BlueCarouselSideAuton extends LinearOpMode {
             sleep(intakeSlackTime);
             robot.intakeLifter.setPower(0);
 
-            robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - 2*driveTicks);
-            robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - 2*driveTicks);
-            robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - 2*driveTicks);
-            robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - 2*driveTicks);
-            sleep(500);
+            robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - driveTicks);
+            robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - driveTicks);
+            robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - driveTicks);
+            robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - driveTicks);
 
-            //go left, at duckspinner
-            robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() -(int)(0.3125*strafeTicks));
-            robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + (int)(0.3125*strafeTicks));
-            robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + (int)(0.3125*strafeTicks));
-            robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() -(int)(0.3125*strafeTicks));
-
-            //check direction
-            robot.carouselSpinner.setPower(-0.6);
-            sleep(3000);
-
-            robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + 6*driveTicks);
-            robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + 6*driveTicks);
-            robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + 6*driveTicks);
-            robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + 6*driveTicks);
-            sleep(5000);
+            robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + 4*driveTicks);
+            robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + 4*driveTicks);
+            robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + 4*driveTicks);
+            robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + 4*driveTicks);
 
             robot.intakeLifter.setPower(-0.65);
             sleep((int) 0.5*intakeSlackTime);
             robot.intakeLifter.setPower(0);
             sleep(3000);
-
-
 
         }
 

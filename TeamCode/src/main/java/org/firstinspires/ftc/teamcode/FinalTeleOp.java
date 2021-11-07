@@ -79,10 +79,10 @@ public class FinalTeleOp extends LinearOpMode {
                 }
 
                 if (gamepad2.left_trigger > 0.1){
-                    robot.intakeSpinner.setPower(gamepad2.left_trigger);
+                    robot.intakeSpinner.setPower(gamepad2.left_trigger*0.8);
                 }
                 else if (gamepad2.right_trigger > 0.1){
-                    robot.intakeSpinner.setPower(-gamepad2.right_trigger);
+                    robot.intakeSpinner.setPower(-gamepad2.right_trigger*0.8);
                 }
                 else{
                     robot.intakeSpinner.setPower(0);

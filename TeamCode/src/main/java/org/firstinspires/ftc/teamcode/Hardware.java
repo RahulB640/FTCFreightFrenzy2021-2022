@@ -51,7 +51,7 @@ public class Hardware {
         backRightMotor.setDirection(DcMotor.Direction.FORWARD);
         backLeftMotor.setDirection(DcMotor.Direction.REVERSE);
 
-        carouselSpinner.setDirection(DcMotor.Direction.FORWARD);
+        carouselSpinner.setDirection(DcMotor.Direction.REVERSE);
 //
         intakeSpinner.setDirection(DcMotor.Direction.FORWARD);
         intakeLifter.setDirection(DcMotor.Direction.REVERSE);
