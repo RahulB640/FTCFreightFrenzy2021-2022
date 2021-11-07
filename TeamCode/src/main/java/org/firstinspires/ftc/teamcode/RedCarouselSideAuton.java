@@ -38,7 +38,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.Hardware;
 
 @Autonomous(name="Basic Red Auton for First Meet", group="Auton")
-public class BasicAutonRed extends LinearOpMode {
+public class RedCarouselSideAuton extends LinearOpMode {
 
     Hardware robot = new Hardware();
 

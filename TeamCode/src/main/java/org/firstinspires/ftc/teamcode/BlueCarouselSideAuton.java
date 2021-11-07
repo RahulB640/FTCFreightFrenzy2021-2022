@@ -37,8 +37,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Hardware;
 
-@Autonomous(name="Basic Blue Auton for First Meet", group="Auton")
-public class BasicAutonBlue extends LinearOpMode {
+@Autonomous(name="Basic Red Auton for First Meet", group="Auton")
+public class BlueCarouselSideAuton extends LinearOpMode {
 
     Hardware robot = new Hardware();
 
@@ -50,43 +50,11 @@ public class BasicAutonBlue extends LinearOpMode {
     @Override
     public void runOpMode() {
 
-        robot.initialize(hardwareMap);
-
-
-        robot.frontLeftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.frontRightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.backLeftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.backRightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        robot.frontLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.frontRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.backLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.backRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-
-
-        telemetry.addData("Front Left Motor Encoder Position", robot.frontLeftMotor.getCurrentPosition());
-        telemetry.addData("Front Right Motor Encoder Position", robot.frontRightMotor.getCurrentPosition());
-        telemetry.addData("Back Left Motor Encoder Position", robot.backLeftMotor.getCurrentPosition());
-        telemetry.addData("Back Right Motor Encoder Position", robot.backRightMotor.getCurrentPosition());
 
 
 
-        // Wait for the game to start (driver presses PLAY)
-        waitForStart();
-
-
-            while (opModeIsActive()){
-                telemetry.addData("Front Left Motor Encoder Position", robot.frontLeftMotor.getCurrentPosition());
-                telemetry.addData("Front Right Motor Encoder Position", robot.frontRightMotor.getCurrentPosition());
-                telemetry.addData("Back Left Motor Encoder Position", robot.backLeftMotor.getCurrentPosition());
-                telemetry.addData("Back Right Motor Encoder Position", robot.backRightMotor.getCurrentPosition());
-
-                telemetry.update();
-
-
-            }
+        }
 
     }
-}
 
 
