@@ -105,24 +105,24 @@ public class BlueCarouselSideAuton extends LinearOpMode {
             robot.frontRightMotor.setTargetPosition((int) (driveTicks*1.05));
             robot.backLeftMotor.setTargetPosition((int) (driveTicks*1.05));
             robot.backRightMotor.setTargetPosition((int) (driveTicks*1.05));
-            sleep(100);
+            sleep(1500);
 
             // X -= 0.05
             robot.frontLeftMotor.setTargetPosition((int) (-driveTicks*0.05));
             robot.frontRightMotor.setTargetPosition((int) (-driveTicks*0.05));
             robot.backLeftMotor.setTargetPosition((int) (-driveTicks*0.05));
             robot.backRightMotor.setTargetPosition((int) (-driveTicks*0.05));
-            sleep(100);
+            sleep(300);
 
             //y += 1
             robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - strafeTicks);
             robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + strafeTicks);
             robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + strafeTicks);
             robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - strafeTicks);
-            sleep(100);
+            sleep(1500);
 
             robot.intakeSpinner.setPower(-0.65);
-            sleep(1000);
+            sleep(1200);
             robot.intakeSpinner.setPower(0);
 
             //Turns robot 90 degrees counter-clockwise
@@ -130,7 +130,7 @@ public class BlueCarouselSideAuton extends LinearOpMode {
             robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + turnTicks);
             robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - turnTicks);
             robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + turnTicks);
-            sleep(100);
+            sleep(1500);
 
             robot.intakeLifter.setPower(0.65);
             sleep(intakeSlackTime);
@@ -140,13 +140,14 @@ public class BlueCarouselSideAuton extends LinearOpMode {
             robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - 2*driveTicks);
             robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - 2*driveTicks);
             robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() - 2*driveTicks);
-            sleep(500);
+            sleep(2000);
 
             //go left, at duckspinner
             robot.frontLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() -(int)(0.3125*strafeTicks));
             robot.frontRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + (int)(0.3125*strafeTicks));
             robot.backLeftMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() + (int)(0.3125*strafeTicks));
             robot.backRightMotor.setTargetPosition(robot.frontLeftMotor.getCurrentPosition() -(int)(0.3125*strafeTicks));
+            sleep(500);
 
             //check direction
             robot.carouselSpinner.setPower(-0.6);
